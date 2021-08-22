@@ -15,3 +15,4 @@ class Reto1 extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         $this->_init('omnipro_blog', 'blog_id');
     }
 }
+ 
