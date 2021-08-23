@@ -3,10 +3,10 @@
 /** @var Magento\Framework\View\Element\Template $block */
 /** @var Magento\Framework\ViewModel\Reto1 $viewModel */
 $viewModel = $block->getViewModel();
-$characters = $viewModel->getCharacters();
+$character = $viewModel->getDat();
+//$character2 = $viewModel->getUser();
 ?>
 
-<?php echo $this->getUrl() ?>
 <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
 
     <div class="container position-relative px-4 px-lg-5">
@@ -52,62 +52,42 @@ $characters = $viewModel->getCharacters();
 
             </form>
 
-
-
-            <!-- Post preview-->
-            <div class="post-preview">
-
-                <a href="post.html">
-                </a>
-                <p class="post-meta">
-                </p>
-            </div>
-            <!-- Divider-->
-            <hr class="my-4" />
-            <!-- Post preview-->
-            <div class="post-preview">
-                <a href="post.html">
-
-                </a>
-                <p class="post-meta">
-
-                </p>
-            </div>
-            <!-- Divider-->
-            <hr class="my-4" />
-            <!-- Post preview-->
-            <div class="post-preview">
-                <a href="post.html">
-
-
-                </a>
-                <p class="post-meta">
-
-                </p>
-            </div>
-            <!-- Divider-->
-            <hr class="my-4" />
-            <!-- Post preview-->
-            <div class="post-preview">
-                <a href="post.html">
-
-                </a>
-                <p class="post-meta">
-
-                </p>
-            </div>
-            <!-- Divider-->
-            <hr class="my-4" />
-            <!-- Pager-->
-
         </div>
     </div>
 </div>
 
+<section class="blog-post-area">
+    <div class="container">
+        <div class="row">
+            <div class="blog-post-area-style">
+                <div class="col-md-12">
+                    <?php foreach ($character as $resulItem) : ?>
+
+                        <div class="single-post-big">
+                            <div class="big-image">
+                                <img src="https://i.pinimg.com/originals/65/ad/23/65ad235034dbc94f7dcfd6ea7ee00f45.png" alt="">
+                            </div>
+                            <div class="big-text">
+                                <h3><?= $resulItem['title'] ?></h3>
+                                <p><?= $resulItem['content'] ?></p>
+                                <h4><span class="date"><?= $resulItem['fecha'] ?></span><span class="author">Posted By: <span class="author-name"><?= $resulItem['email'] ?></span></span>
+                                </h4>
+                            </div>
+                        </div>
+
+                    <?php endforeach; ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
 <script>
     //validar campo vacio
     function validaVacio(valor) {
-        valor = valor.replace("&nbsp;", "");
+        valor = valor.replace("&nbsp;", "", " ");
         valor = valor == undefined ? "" : valor;
         if (!valor || 0 === valor.trim().length) {
             return true;
@@ -164,6 +144,9 @@ $characters = $viewModel->getCharacters();
         });
     });
 </script>
+
+
+
 <div class="alert-modal-content">
     <p>Se han insertado los datos correctamente</p>
 </div>
