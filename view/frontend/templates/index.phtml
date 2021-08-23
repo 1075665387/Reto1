@@ -5,94 +5,169 @@
 $viewModel = $block->getViewModel();
 $characters = $viewModel->getCharacters();
 ?>
-<html lang="en">
 
-<body>
-    <!-- Navigation-->
-    <!-- Page Header-->
-    <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+<?php echo $this->getUrl() ?>
+<header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
 
-        <div class="container position-relative px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <div class="site-heading">
-                        <img src='<?php echo $this->getViewFileUrl('Omnipro_Reto1::/media/blogimage.png'); ?>' class="w-100 h-100 img-thumbnail" width="100" height="100">
-                        <h1>My Espectacular Blog</h1>
-                        <span class="subheading">Rafael Pulido - David Delgado</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Main Content-->
-    <div class="container px-4 px-lg-5">
+    <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
-                <div class="mb-3">
-                    <h2 for="exampleFormControlInput1" class="post-title">New Blog Post</h2>
-                    <input id="title_post" class="form-control form-control-lg" type="text" placeholder="Titulo del post " aria-label=".form-control-lg example">
-
+                <div class="site-heading">
+                    <img src='<?php echo $this->getViewFileUrl('Omnipro_Reto1::/media/blogimage.png'); ?>' class="w-100 h-100 img-thumbnail" width="100" height="100">
+                    <h1>My Espectacular Blog</h1>
+                    <span class="subheading">Rafael Pulido - David Delgado</span>
                 </div>
-                <div class="mb-3">
-                    <textarea class="post-subtitle" id="text_area" rows="10"></textarea>
-                </div>
-                <div class="mb-3">
-                    <input id="emai" class="form-control form-control-lg" type="email" placeholder="Correo electronico " aria-label=".form-control-lg example">
-                </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label" aria-label=".form-control-lg example">Subir Imagen</label>
-                    <input class="post-title" type="file" id="formFile" aria-label=".form-control-lg example">
-                </div>
-                <button type="button" class="btn btn-secondary" id="button">Save Post</button>
-                <!-- Post preview-->
-                <div class="post-preview">
-
-                    <a href="post.html">
-                    </a>
-                    <p class="post-meta">
-                    </p>
-                </div>
-                <!-- Divider-->
-                <hr class="my-4" />
-                <!-- Post preview-->
-                <div class="post-preview">
-                    <a href="post.html">
-                        
-                    </a>
-                    <p class="post-meta">
-
-                    </p>
-                </div>
-                <!-- Divider-->
-                <hr class="my-4" />
-                <!-- Post preview-->
-                <div class="post-preview">
-                    <a href="post.html">
-                      
-                    
-                    </a>
-                    <p class="post-meta">
-           
-                    </p>
-                </div>
-                <!-- Divider-->
-                <hr class="my-4" />
-                <!-- Post preview-->
-                <div class="post-preview">
-                    <a href="post.html">
-
-                    </a>
-                    <p class="post-meta">
-
-                    </p>
-                </div>
-                <!-- Divider-->
-                <hr class="my-4" />
-                <!-- Pager-->
-               
             </div>
         </div>
     </div>
-</body>
+</header>
 
-</html>
+
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+
+            <form id="form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <h2 for="exampleFormControlInput1" class="post-title">New Blog Post</h2>
+                    <input id="title" name="title" class="form-control" type="text" placeholder="Title text" aria-label="default input example">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Insert Content</label>
+                    <textarea id="content" name="content" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input id="email" name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+
+                <div>
+                    <label for="formFileLg" class="form-label">Subir Imagen</label>
+                    <input id="file" name="file" class="form-control form-control-lg" id="formFileLg" type="file">
+                </div>
+
+                <button type="submit" class="btn btn-secondary">Save Post</button>
+
+            </form>
+
+
+
+            <!-- Post preview-->
+            <div class="post-preview">
+
+                <a href="post.html">
+                </a>
+                <p class="post-meta">
+                </p>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4" />
+            <!-- Post preview-->
+            <div class="post-preview">
+                <a href="post.html">
+
+                </a>
+                <p class="post-meta">
+
+                </p>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4" />
+            <!-- Post preview-->
+            <div class="post-preview">
+                <a href="post.html">
+
+
+                </a>
+                <p class="post-meta">
+
+                </p>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4" />
+            <!-- Post preview-->
+            <div class="post-preview">
+                <a href="post.html">
+
+                </a>
+                <p class="post-meta">
+
+                </p>
+            </div>
+            <!-- Divider-->
+            <hr class="my-4" />
+            <!-- Pager-->
+
+        </div>
+    </div>
+</div>
+
+<script>
+    //validar campo vacio
+    function validaVacio(valor) {
+        valor = valor.replace("&nbsp;", "");
+        valor = valor == undefined ? "" : valor;
+        if (!valor || 0 === valor.trim().length) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    require(['jquery', 'jquery/ui'], function($) {
+        jQuery(document).ready(function() {
+
+            document.getElementById("form").addEventListener('submit', function(e) {
+                //envía los datos sinrecargar la página
+                //e.preventDefault();
+
+                const title = document.getElementById('title').value;
+                const content = document.getElementById('content').value;
+                const email = document.getElementById('email').value;
+                const file = document.getElementById('file').value;
+
+                if (validaVacio(title) || validaVacio(content) || validaVacio(email) || validaVacio(file)) {
+                    //alert
+                    return $('.alert-modal-content2').alert({
+                        title: $.mage.__('Warning'),
+                        content: $.mage.__('Warning content'),
+                        actions: {
+                            always: function() {}
+                        }
+                    });
+                } else {
+                    object = {
+                        title: title,
+                        content: content,
+                        email: email,
+                        file: file
+                    }
+
+                    $.post('https://app.bootcamp.test/reto1/index/index', {
+                        object
+                    });
+
+                    //alert
+                    $('.alert-modal-content').alert({
+                        title: $.mage.__('Warning'),
+                        content: $.mage.__('Warning content'),
+                        actions: {
+                            always: function() {}
+                        }
+                    });
+
+
+                }
+            })
+
+        });
+    });
+</script>
+<div class="alert-modal-content">
+    <p>Se han insertado los datos correctamente</p>
+</div>
+
+<div class="alert-modal-content2">
+    <p>Por favor inserta todos los datos</p>
+</div>
