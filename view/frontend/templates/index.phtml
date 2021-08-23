@@ -1,4 +1,5 @@
 <?php
+
 /** @var Magento\Framework\View\Element\Template $block */
 /** @var Magento\Framework\ViewModel\Reto1 $viewModel */
 $viewModel = $block->getViewModel();
@@ -6,144 +7,92 @@ $characters = $viewModel->getCharacters();
 ?>
 <html lang="en">
 
-    <body>
-        <!-- Navigation-->
-        <!-- Page Header-->
-        <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
-        
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="site-heading">
-                        <img src='<?php echo $this->getViewFileUrl('Omnipro_Reto1::/media/bienvenidos a mi blog.png'); ?>' class="w-20 h-20 img-thumbnail">
-                            <h1>My Espectacular Blog</h1>
-                            <span class="subheading">Rafael Pulido - David Delgado</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
+<body>
+    <!-- Navigation-->
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+
+        <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2021
-                        </p>
+                    <div class="site-heading">
+                        <img src='<?php echo $this->getViewFileUrl('Omnipro_Reto1::/media/blogimage.png'); ?>' class="w-100 h-100 img-thumbnail" width="100" height="100">
+                        <h1>My Espectacular Blog</h1>
+                        <span class="subheading">Rafael Pulido - David Delgado</span>
                     </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 18, 2021
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Science has not yet mastered prophecy</h2>
-                            <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on August 24, 2021
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Failure is not an option</h2>
-                            <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on July 8, 2021
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
             </div>
         </div>
-        <!-- Footer-->
-        <footer class="border-top">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <ul class="list-inline text-center">
-                            <li class="list-inline-item">
-                                <a href="#!">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#!">
-                                    <span class="fa-stack fa-lg">
-                                        <i class="fas fa-circle fa-stack-2x"></i>
-                                        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2021</div>
-                    </div>
+    </header>
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="mb-3">
+                    <h2 for="exampleFormControlInput1" class="post-title">New Blog Post</h2>
+                    <input id="title_post" class="form-control form-control-lg" type="text" placeholder="Titulo del post " aria-label=".form-control-lg example">
+
                 </div>
+                <div class="mb-3">
+                    <textarea class="post-subtitle" id="text_area" rows="10"></textarea>
+                </div>
+                <div class="mb-3">
+                    <input id="emai" class="form-control form-control-lg" type="email" placeholder="Correo electronico " aria-label=".form-control-lg example">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label" aria-label=".form-control-lg example">Subir Imagen</label>
+                    <input class="post-title" type="file" id="formFile" aria-label=".form-control-lg example">
+                </div>
+                <button type="button" class="btn btn-secondary" id="button">Save Post</button>
+                <!-- Post preview-->
+                <div class="post-preview">
+
+                    <a href="post.html">
+                    </a>
+                    <p class="post-meta">
+                    </p>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <a href="post.html">
+                        
+                    </a>
+                    <p class="post-meta">
+
+                    </p>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <a href="post.html">
+                      
+                    
+                    </a>
+                    <p class="post-meta">
+           
+                    </p>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <a href="post.html">
+
+                    </a>
+                    <p class="post-meta">
+
+                    </p>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+                <!-- Pager-->
+               
             </div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    </body>
+        </div>
+    </div>
+</body>
+
 </html>
-
-
-<?php foreach ($characters['results'] as $resultItem):?>
-    <div class="nombre">
-        <h3> <?= $resultItem['name'] ?> </h3>
-    </div>
-    <div class="estatus">
-        <h3> <?= $resultItem['status'] ?> </h3>
-    </div>
-    <div class="especie">
-        <h3> <?= $resultItem['species'] ?> </h3>
-    </div>
-    <div class="genero">
-        <h3> <?= $resultItem['gender'] ?> </h3>
-    </div>
-    <div class="imagen">
-        <img src="<?= $resultItem['image'] ?>" alt="<?= $resultItem['name'] ?>">
-    </div>
-    <br>
-    <?php endforeach; ?>
