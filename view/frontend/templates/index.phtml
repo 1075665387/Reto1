@@ -22,69 +22,84 @@ $character = $viewModel->getDat();
     </div>
 </header>
 
-
-<!-- Main Content-->
 <div class="container px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-        <div class="col-md-10 col-lg-8 col-xl-7">
+    <div style="background: rgb(132,132,139);
+        background: linear-gradient(90deg, rgba(132,132,139,1) 0%, rgba(173,163,163,0.3284664207479867) 97%);">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
 
-            <form id="form" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <h2 for="exampleFormControlInput1" class="post-title">New Blog Post</h2>
-                    <input id="title" name="title" class="form-control" type="text" placeholder="Title text" aria-label="default input example">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Insert Content</label>
-                    <textarea id="content" name="content" class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-                </div>
+            <div class="col-md-10 col-lg-8 col-xl-7">
 
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input id="email" name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                </div>
+                <form id="form" enctype="multipart/form-data" method="POST">
+                    <br>
+                    <div class="mb-3">
+                        <h2 for="exampleFormControlInput1" class="post-title">New Blog Post</h2>
+                        <input id="title" name="title" class="form-control" type="text" placeholder="Title text" aria-label="default input example" required="true"">
+                    </div>
+                    <div class=" mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Insert Content</label>
+                        <textarea id="content" name="content" class="form-control" id="exampleFormControlTextarea1" rows="10" required="true"></textarea>
+                    </div>
 
-                <div>
-                    <label for="formFileLg" class="form-label">Subir Imagen</label>
-                    <input id="file" name="file" class="form-control form-control-lg" id="formFileLg" type="file">
-                </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input id="email" name="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required="true">
+                    </div>
 
-                <button type="submit" class="btn btn-secondary">Save Post</button>
+                    <!--<div>
+                        <label for="formFileLg" class="form-label">Subir Imagen</label>
+                        <input id="file" name="file" class="form-control form-control-lg" id="formFileLg" type="file">
+                       </div>
+                    -->
 
-            </form>
+                    <br>
 
-        </div>
-    </div>
-</div>
+                    <button class="btn btn-secondary">Save Post</button>
+                    <br>
 
-<section class="blog-post-area">
-    <div class="container">
-        <div class="row">
-            <div class="blog-post-area-style">
-                <div class="col-md-12">
-                    <?php foreach ($character as $resulItem) : ?>
-
-                        <div class="single-post-big">
-                            <div class="big-image">
-                                <img src="https://i.pinimg.com/originals/65/ad/23/65ad235034dbc94f7dcfd6ea7ee00f45.png" alt="">
-                            </div>
-                            <div class="big-text">
-                                <h3><?= $resulItem['title'] ?></h3>
-                                <p><?= $resulItem['content'] ?></p>
-                                <h4><span class="date"><?= $resulItem['fecha'] ?></span><span class="author">Posted By: <span class="author-name"><?= $resulItem['email'] ?></span></span>
-                                </h4>
-                            </div>
-                        </div>
-
-                    <?php endforeach; ?>
-
-                </div>
+                </form>
+                <br>
             </div>
         </div>
     </div>
 
+</div>
+
+<!-- Main Content-->
+
+<section class="blog-list px-3 py-5 p-md-5">
+    <div class="container">
+
+        <!--//item-->
+        <?php foreach ($character as $resulItem) : ?>
+
+            <div style="-webkit-box-shadow: 1px 3px 13px 1px rgba(0,0,0,0.68);
+                        -moz-box-shadow: 1px 3px 13px 1px rgba(0,0,0,0.68);
+                        box-shadow: 1px 3px 13px 1px rgba(0,0,0,0.68);">
+                <div class="item mb-5">
+                    <h1 class="title mb-1"><?= $resulItem['title'] ?></h1>
+                    <div class="media">
+                        <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="https://s3.amazonaws.com/libapps/accounts/10097/images/blog.png" alt="image">
+                        <div class="media-body">
+                            <h6 style="text-align: right;"><span class="date"><?= $resulItem['fecha'] ?></span></h6>
+
+                            <p style="font-size: 14px"><?= $resulItem['content'] ?></p>
+
+                            <br>
+
+                            <span class="author">Posted By: <span class="author-name"><?= $resulItem['email'] ?></span></span>
+                        </div>
+                        <!--//media-body-->
+                    </div>
+                    <!--//media-->
+                </div>
+            </div>
+        <?php endforeach; ?>
+
+    </div>
 </section>
 
-<script>
+
+<script type="text/javascript">
     //validar campo vacio
     function validaVacio(valor) {
         valor = valor.replace("&nbsp;", "", " ");
@@ -95,6 +110,54 @@ $character = $viewModel->getDat();
             return false;
         }
     }
+
+    //funcion para validar correo
+    function validarCorreo(correo) {
+        const cor = /^([a-z0-9._-]{5,25})+@[a-z]{3,20}[.]\b[a-z.]{2,8}$/;
+        const respuesta = cor.test(correo);
+        if (respuesta) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    //funcion para validar caracteres especiales
+    function validarCaracteres(dato) {
+
+        const car = /^[a-zA-Z0-9á-úÁ-Ú._ *-]$/;
+        const respuesta = car.test(dato);
+        if (respuesta) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    function guardar() {
+        object = {
+            title: title,
+            content: content,
+            email: email,
+            file: file
+        }
+
+        $.post('https://app.bootcamp.test/reto1/index/index', {
+            object
+        });
+
+        //window.location.replace("https://app.bootcamp.test/reto1");
+        document.getElementById("form").reset();
+
+        //envía los datos sinrecargar la página
+        e.preventDefault();
+
+        //alert
+        return alert("hdgtd");
+
+    }
+
+
     require(['jquery', 'jquery/ui'], function($) {
         jQuery(document).ready(function() {
 
@@ -105,9 +168,9 @@ $character = $viewModel->getDat();
                 const title = document.getElementById('title').value;
                 const content = document.getElementById('content').value;
                 const email = document.getElementById('email').value;
-                const file = document.getElementById('file').value;
+                //const file = document.getElementById('file').value;
 
-                if (validaVacio(title) || validaVacio(content) || validaVacio(email) || validaVacio(file)) {
+                if (validaVacio(title) || validaVacio(content) || validaVacio(email)) {
                     //alert
                     return $('.alert-modal-content2').alert({
                         title: $.mage.__('Warning'),
@@ -116,20 +179,15 @@ $character = $viewModel->getDat();
                             always: function() {}
                         }
                     });
-                } else {
-                    object = {
-                        title: title,
-                        content: content,
-                        email: email,
-                        file: file
-                    }
 
-                    $.post('https://app.bootcamp.test/reto1/index/index', {
-                        object
-                    });
+                    //redireccioono para que no se me cargue la pagina y vuelva a enviar el formulario 
+                    //window.location.replace("https://app.bootcamp.test/reto1");
 
+                }
+
+                if (!validarCorreo(email)) {
                     //alert
-                    $('.alert-modal-content').alert({
+                    return $('.alert-modal-content2').alert({
                         title: $.mage.__('Warning'),
                         content: $.mage.__('Warning content'),
                         actions: {
@@ -137,8 +195,29 @@ $character = $viewModel->getDat();
                         }
                     });
 
+                    //redireccioono para que no se me cargue la pagina y vuelva a enviar el formulario 
+                    //window.location.replace("https://app.bootcamp.test/reto1");
 
                 }
+
+                if (!validarCaracteres(title) || !validarCaracteres(content) || !validarCaracteres(email)) {
+                    //alert
+                    return $('.alert-modal-content2').alert({
+                        title: $.mage.__('Warning'),
+                        content: $.mage.__('Warning content'),
+                        actions: {
+                            always: function() {}
+                        }
+                    });
+
+                    //redireccioono para que no se me cargue la pagina y vuelva a enviar el formulario 
+                    //window.location.replace("https://app.bootcamp.test/reto1");
+
+                }
+
+                guardar();
+                
+
             })
 
         });

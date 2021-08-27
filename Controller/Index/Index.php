@@ -6,7 +6,7 @@ use Omnipro\Reto1\Model\Reto1Factory;
 use \Magento\User\Model\UserFactory;
 //use Magento\Framework\App\Filesystem\DirectoryList;
 
-class Index implements \Magento\Framework\App\Action\HttpGetActionInterface
+class Index extends \Magento\Framework\App\Action\Action
 {
     /**
      * @var \Magento\Framework\View\Result\PageFactory
@@ -15,14 +15,19 @@ class Index implements \Magento\Framework\App\Action\HttpGetActionInterface
     protected $_Reto1Factory;
     protected $_request;
     protected $_UserFactory;
-
+    
     //para subir imagen
     protected $_fileUploaderFactory;
 
     /**
      * @param \Magento\Framework\App\Action\Context $context
      */
+
+     /**
+     * @param \Magento\Framework\App\Action\Context $context
+     */
     public function __construct(
+        \Magento\Framework\App\Action\Context $context,
 
         \Magento\Framework\App\RequestInterface $request,
         \Magento\Framework\View\Result\PageFactory $pageFactory,
@@ -36,6 +41,8 @@ class Index implements \Magento\Framework\App\Action\HttpGetActionInterface
         $this->_Reto1Factory = $Reto1F;
         $this->_request = $request;
         $this->_UserFactory=$UserFactory;
+        return parent::__construct($context);
+    
         //$this->_fileUploaderFactory = $fileUploaderFactory;
     }
     /**
@@ -46,24 +53,25 @@ class Index implements \Magento\Framework\App\Action\HttpGetActionInterface
     public function execute()
     {
         
-        $getp = $this->_request->getParams();
+        $getp = $this->_request->getPost();
         //crar entrada en la tabla useropinion
         $pos = $this->_Reto1Factory->create(); //instancia user opinion
         $userF=$this->_UserFactory->create();
-        $userF=$userF->getCollection()->addFieldToFilter('email', array('like' => '% elrafafa'));
-        
-        foreach($userF as $item){
-			echo "<pre>";
-			print_r($item);
-			echo "</pre>";
-		}
+        $userF=$userF->getCollection()->addFieldToFilter('email', 'elkin.pulido@omni.pro');
+        $file= $userF->getItems();
+        //echo $file;
+        /*foreach($userF->getItems() as $item){
+			
+			print_r($item->getCorreo());
+			
+		}*/
 
         if (!empty($getp)) {
             // Retrieve your form data
             $title  = $getp['title'];
             $content   = $getp['content'];
             $email = $getp['email'];
-            $file   = $getp['file'];
+            //$file   = $getp['file'];
 
             //calidar correo administrador 
             
@@ -72,7 +80,7 @@ class Index implements \Magento\Framework\App\Action\HttpGetActionInterface
             //manera 1 de enviar datos
             $pos->setData('title', $title);
             $pos->setData('content', $content);
-            $pos->setData('image_path', $file);
+            //$pos->setData('image_path', $file);
             $pos->setData('email', $email);
             $pos->save();
             /*

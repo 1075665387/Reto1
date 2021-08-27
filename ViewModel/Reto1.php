@@ -23,7 +23,7 @@ class Reto1 implements \Magento\Framework\View\Element\Block\ArgumentInterface
         public function getDat(){
             $colections=$this->_Reto1Factory->create();
             //return $this->curl->getBody();
-            return $colections->getCollection();
+            return $colections->getCollection()->setOrder('fecha','DESC');;
         }
 
         /*public function getUser(){

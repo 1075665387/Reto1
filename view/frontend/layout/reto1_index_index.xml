@@ -4,6 +4,7 @@
 		<css src="Omnipro_Reto1::css/styles.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet"  type="text/css" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" src_type="url" />   
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"  src_type="url"></script>
+		
 	</head>
 	<body>
 		<referenceContainer name="content">
